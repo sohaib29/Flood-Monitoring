@@ -1,7 +1,8 @@
 package com.realtime.monitoring.controllers;
 
-import com.realtime.monitoring.data.Item;
-import com.realtime.monitoring.data.frontendResponse.MonitoringStation;
+import com.realtime.monitoring.data.response.frontendResponses.DetailedReadingResponse;
+import com.realtime.monitoring.data.response.frontendResponses.MonitoringStation;
+import com.realtime.monitoring.data.response.frontendResponses.Stations;
 import com.realtime.monitoring.services.interfaces.StationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +18,17 @@ public class StationsController {
     private final StationService stationService;
 
     @GetMapping()
-    public List<MonitoringStation> getStations() {
+    public List<Stations> getStations() {
         return stationService.getAllStations();
     }
 
     @GetMapping("/{id}")
-    public Item getStation(@PathVariable("id") String stationId) {
+    public MonitoringStation getStation(@PathVariable("id") String stationId) {
         return stationService.getStation(stationId);
+    }
+
+    @GetMapping("/{id}/readings")
+    public DetailedReadingResponse getStationReadings(@PathVariable("id") String stationId) {
+        return stationService.getStationReadings(stationId);
     }
 }

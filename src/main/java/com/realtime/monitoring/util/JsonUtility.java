@@ -1,6 +1,6 @@
 package com.realtime.monitoring.util;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -18,8 +18,8 @@ public class JsonUtility {
         return convertFields(field, Double.class);
     }
 
-    public static List<LocalDate> convertDateFields(Object field) {
-        return convertFields(field, LocalDate.class);
+    public static List<LocalDateTime> convertDateFields(Object field) {
+        return convertFields(field, LocalDateTime.class);
     }
 
     public static <T> List<T> convertFields(Object field, Class<T> type) {

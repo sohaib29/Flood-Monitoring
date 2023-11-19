@@ -1,6 +1,6 @@
-package com.realtime.monitoring.data.response;
+package com.realtime.monitoring.data.response.singleStationResponse;
 
-import com.realtime.monitoring.data.Item;
+import com.realtime.monitoring.data.response.FloodMonitoringResponse;
 import lombok.Getter;
 import lombok.Setter;
 

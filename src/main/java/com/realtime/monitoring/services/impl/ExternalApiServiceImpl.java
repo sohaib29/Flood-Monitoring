@@ -24,12 +24,17 @@ public class ExternalApiServiceImpl implements ExternalApiService {
     @Cacheable("apiResponseCache")
     @Override
     public String getAllStations() {
-        return restTemplate.getForObject(externalApiUrl + ID + STATIONS +"?_limit=50", String.class);
+        return restTemplate.getForObject(externalApiUrl + ID + STATIONS, String.class);
     }
 
     @Override
     public String getStation(String stationId) {
         return restTemplate.getForObject(externalApiUrl + ID + STATIONS + "/" + stationId, String.class);
+    }
+
+    @Override
+    public String getStationReadings(String stationId) {
+        return restTemplate.getForObject(externalApiUrl + ID + STATIONS + "/" + stationId + "/readings?today&_view=full&_sorted", String.class);
     }
 
 }

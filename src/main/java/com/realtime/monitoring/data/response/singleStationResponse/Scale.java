@@ -1,4 +1,4 @@
-package com.realtime.monitoring.data;
+package com.realtime.monitoring.data.response.singleStationResponse;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

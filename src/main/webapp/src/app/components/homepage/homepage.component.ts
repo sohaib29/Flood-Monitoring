@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {MonitoringStations, status} from "../../Interfaces/MonitoringStations";
-import {Observable} from "rxjs";
+import {AfterViewInit, ChangeDetectorRef, Component, ViewChild} from '@angular/core';
+import {MonitoringStations} from "../../Interfaces/MonitoringStations";
 import {MonitoringStationService} from "../../services/monitoring-station.service";
 import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator"
 
 @Component({
   selector: 'app-homepage',
@@ -10,28 +10,24 @@ import {MatTableDataSource} from "@angular/material/table";
   styleUrl: './homepage.component.scss',
 })
 
-export class HomepageComponent implements OnInit {
+
+export class HomepageComponent implements AfterViewInit {
   dataSource = new MatTableDataSource<MonitoringStations>();
   displayedColumns: string[] = ['label', 'id', 'town', 'river', 'dateOpened', 'status'];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  monitoringStations$: Observable<MonitoringStations[]> | undefined;
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.cdr.detectChanges();
+  }
 
-  constructor(private monitoringStationService: MonitoringStationService) {
+  constructor(private monitoringStationService: MonitoringStationService, private cdr: ChangeDetectorRef) {
     this.setMonitoringStations$();
   }
 
-  ngOnInit(): void {
-  }
-
   private setMonitoringStations$() {
-    this.monitoringStations$ = this.monitoringStationService.getMonitoringStations();
-    this.monitoringStations$.subscribe(
-      (data) => {
-        this.dataSource.data = data;
-      },
-      (error) => {
-        console.error('Error fetching data:', error);
-      }
-    );
+    this.monitoringStationService.getMonitoringStations().subscribe((data: MonitoringStations[]) => {
+      this.dataSource.data = data;
+    });
   }
 }

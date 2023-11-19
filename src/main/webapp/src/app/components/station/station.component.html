@@ -1,1 +1,4 @@
-<p>station works!</p>
+<app-line-chart [dateTime]="readings?.stageLevel?.dateTime"
+                [value]="readings?.stageLevel?.value"
+                [label]="label"
+                value="Stage Level"></app-line-chart>

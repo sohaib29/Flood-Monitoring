@@ -1,19 +1,21 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {HeaderComponent} from './header/header.component';
+import {NavigationComponent} from './navigation/navigation.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatListModule} from "@angular/material/list";
 import {MatSidenavModule} from "@angular/material/sidenav";
-import { HomepageComponent } from './components/homepage/homepage.component';
-import { StationComponent } from './components/station/station.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {HomepageComponent} from './components/homepage/homepage.component';
+import {StationComponent} from './components/station/station.component';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTableModule} from "@angular/material/table";
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
+import {MatPaginatorModule} from "@angular/material/paginator";
+import { LineChartComponent } from './components/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     NavigationComponent,
     HomepageComponent,
-    StationComponent
+    StationComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +35,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     NoopAnimationsModule,
     MatTableModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

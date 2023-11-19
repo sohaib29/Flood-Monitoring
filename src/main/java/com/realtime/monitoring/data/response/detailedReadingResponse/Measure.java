@@ -1,27 +1,23 @@
-package com.realtime.monitoring.data;
+package com.realtime.monitoring.data.response.detailedReadingResponse;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import com.realtime.monitoring.data.response.singleStationResponse.LatestReading;
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Measures {
+public class Measure {
     @JsonProperty("@id")
     private String id;
 
     private String parameter;
-    private String parameterName;
     private int period;
     private String qualifier;
     private String unitName;
-    private String station;
+    private Station station;
     private String stationReference;
-    private LatestReading latestReading;
-
-
+    private String valueType;
 
 }

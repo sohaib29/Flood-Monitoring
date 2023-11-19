@@ -6,4 +6,6 @@ public interface ExternalApiService {
 
     String getStation(String stationId);
 
+    String getStationReadings(String stationId);
+
 }

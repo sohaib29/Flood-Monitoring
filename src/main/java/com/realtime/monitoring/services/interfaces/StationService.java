@@ -1,14 +1,15 @@
 package com.realtime.monitoring.services.interfaces;
 
-import com.realtime.monitoring.data.Item;
-import com.realtime.monitoring.data.frontendResponse.MonitoringStation;
+import com.realtime.monitoring.data.response.frontendResponses.DetailedReadingResponse;
+import com.realtime.monitoring.data.response.frontendResponses.MonitoringStation;
+import com.realtime.monitoring.data.response.frontendResponses.Stations;
 
 import java.util.List;
 
 public interface StationService {
 
-    List<MonitoringStation> getAllStations();
-
-    Item getStation(String id);
+    List<Stations> getAllStations();
+    MonitoringStation getStation(String id);
+    DetailedReadingResponse getStationReadings(String id);
 
 }
