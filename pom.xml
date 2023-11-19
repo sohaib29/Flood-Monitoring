@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.7.17</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.real-time</groupId>
+	<artifactId>monitoring</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>monitoring</name>
+	<description>Real Time Monitoring Project</description>
+	<properties>
+		<java.version>11</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.13.0</version> <!-- Use the latest version available -->
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.4.2.Final</version> <!-- Check for the latest version on the MapStruct website -->
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-processor</artifactId>
+			<version>1.4.2.Final</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.jsonld-java</groupId>
+			<artifactId>jsonld-java</artifactId>
+			<version>0.13.5</version>
+		</dependency>
+		<dependency>
+			<groupId>com.io-informatics.oss</groupId>
+			<artifactId>jackson-jsonld</artifactId>
+			<version>0.1.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<fork>false</fork>
+					<image>
+						<builder>paketobuildpacks/builder-jammy-base:latest</builder>
+					</image>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
