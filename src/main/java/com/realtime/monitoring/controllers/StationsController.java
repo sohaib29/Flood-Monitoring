@@ -1,7 +1,6 @@
 package com.realtime.monitoring.controllers;
 
 import com.realtime.monitoring.data.Item;
-import com.realtime.monitoring.data.Items;
 import com.realtime.monitoring.data.frontendResponse.MonitoringStation;
 import com.realtime.monitoring.services.interfaces.StationService;
 import lombok.RequiredArgsConstructor;
