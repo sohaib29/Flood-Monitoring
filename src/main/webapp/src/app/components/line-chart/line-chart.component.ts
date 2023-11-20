@@ -20,9 +20,8 @@ export class LineChartComponent implements OnInit {
   createChart() {
 
     this.chart = new Chart(this.label, {
-      type: 'line', //this denotes tha type of chart
-
-      data: {// values on X-Axis
+      type: 'line',
+      data: {
         labels: this.dateTime,
         datasets: [
           {
