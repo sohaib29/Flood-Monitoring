@@ -44,7 +44,7 @@ public class Item {
             @JsonProperty("label") Object label,
             @JsonProperty("lat") Object latitude,
             @JsonProperty("long") Object longitude,
-            @JsonProperty("measures") List<Measures> measures,
+            @JsonProperty("measures") Object measures,
             @JsonProperty("northing") Object northing,
             @JsonProperty("notation") String notation,
             @JsonProperty("stageScale") Scale stageScale,
@@ -65,7 +65,7 @@ public class Item {
         this.label = JsonUtility.convertStringFields(label);
         this.latitude = JsonUtility.convertDoubleFields(latitude);
         this.longitude = JsonUtility.convertDoubleFields(longitude);
-        this.measures = measures;
+        this.measures = JsonUtility.convertMeasureFields(measures);
         this.notation = notation;
         this.stageScale = checkScale(stageScale);
         this.downstageScale = checkScale(downstageScale);

@@ -3,6 +3,7 @@ import {MonitoringStations} from "../../Interfaces/MonitoringStations";
 import {MonitoringStationService} from "../../services/monitoring-station.service";
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator} from "@angular/material/paginator"
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-homepage',
@@ -21,8 +22,14 @@ export class HomepageComponent implements AfterViewInit {
     this.cdr.detectChanges();
   }
 
-  constructor(private monitoringStationService: MonitoringStationService, private cdr: ChangeDetectorRef) {
+  constructor(private monitoringStationService: MonitoringStationService,
+              private cdr: ChangeDetectorRef,
+              private router: Router) {
     this.setMonitoringStations$();
+  }
+
+  onRowClick(row: any): void {
+    this.router.navigate(['/station', row.id]);
   }
 
   private setMonitoringStations$() {

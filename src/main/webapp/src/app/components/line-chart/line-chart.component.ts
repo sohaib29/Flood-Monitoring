@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import Chart from 'chart.js/auto';
+import {Chart} from "chart.js";
 
 @Component({
   selector: 'app-line-chart',
@@ -8,31 +8,32 @@ import Chart from 'chart.js/auto';
 })
 export class LineChartComponent implements OnInit {
   public chart: any;
-  @Input() dateTime: any;
-  @Input() value: any;
-  @Input() label: any;
+  @Input() dateTime!: string[];
+  @Input() value!: number[];
+  @Input() label!: string;
+
   ngOnInit(): void {
+    console.log(this.label)
     this.createChart();
   }
 
+  createChart() {
 
-  createChart(){
+    this.chart = new Chart(this.label, {
+      type: 'line', //this denotes tha type of chart
 
-    this.chart = new Chart("MyChart", {
-      type: 'line',
-
-      data: {
-        labels: this.dateTime?.reverse(),
+      data: {// values on X-Axis
+        labels: this.dateTime,
         datasets: [
           {
             label: this.label,
-            data: this.value?.reverse(),
+            data: this.value,
             backgroundColor: 'blue'
           }
         ]
       },
       options: {
-        aspectRatio:2.5
+        aspectRatio: 2.5
       }
 
     });

@@ -1,5 +1,7 @@
 package com.realtime.monitoring.util;
 
+import com.realtime.monitoring.data.Measures;
+
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
@@ -16,6 +18,10 @@ public class JsonUtility {
 
     public static List<Double> convertDoubleFields(Object field) {
         return convertFields(field, Double.class);
+    }
+
+    public static List<Measures> convertMeasureFields(Object field) {
+        return convertFields(field, Measures.class);
     }
 
     public static List<LocalDateTime> convertDateFields(Object field) {

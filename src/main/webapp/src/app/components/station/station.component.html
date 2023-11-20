@@ -1,4 +1,4 @@
-<app-line-chart [dateTime]="readings?.stageLevel?.dateTime"
-                [value]="readings?.stageLevel?.value"
-                [label]="label"
-                value="Stage Level"></app-line-chart>
+<div *ngFor="let entry of readingMap | keyvalue">
+  <h3>{{ entry.key }}</h3>
+      <app-line-chart [dateTime]="entry.value.dateTime" [value]="entry.value.value" [label]="entry.key" ></app-line-chart>
+</div>
