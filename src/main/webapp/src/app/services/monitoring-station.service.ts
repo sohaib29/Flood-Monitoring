@@ -23,7 +23,6 @@ export class MonitoringStationService {
 
   getMonitoringStationReadings(id: string | undefined): Observable<MonitoringStationReadings> {
     const url = `http://localhost:8080/stations/${id}/readings`;
-    console.log(url);
     return this.http.get<MonitoringStationReadings>(url);
   }
 }

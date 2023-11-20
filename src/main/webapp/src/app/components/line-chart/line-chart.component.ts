@@ -13,7 +13,6 @@ export class LineChartComponent implements OnInit {
   @Input() label!: string;
 
   ngOnInit(): void {
-    console.log(this.label)
     this.createChart();
   }
 
